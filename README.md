@@ -275,9 +275,8 @@ Inne i famile-mappen skal du opprette en mappe for hver av slektene i familien. 
     * /Lycaloplex
         * README.md
 
-## git gud
 
-Nå kan du alt du trenger for å gjøre endringer med **git**! Det virker kanskje litt mer tungvint enn å skrive i Word, men når man er flere som skriver kode, er det essentielt for å ikke få store problemer. Fortsett med å legge til flere slekter og arter. Ikke gjør alt på en gang! Stykk opp arbeidet ditt. Da er det enklere for deg å holde oversikt, og det er enklere for noen som leser historikken senere å forstå hva som har skjedd i vært steg.
+Ikke gjør alt på en gang! Stykk opp arbeidet ditt. Da er det enklere for deg å holde oversikt, og det er enklere for noen som leser historikken senere å forstå hva som har skjedd i vært steg.
 
 Husk prosessen: 
 * Lag og switch til en ny branch fra main
@@ -288,6 +287,10 @@ Husk prosessen:
 * merge PRen i github
 * pull ny main.
 
+## git gud
+
+Nå kan du alt du trenger for å gjøre endringer med **git**! Det virker kanskje litt mer tungvint enn å skrive i Word, men når man er flere som skriver kode, er det essentielt for å ikke få store problemer.
+
 ## Overflow
 
 Hvis du er ferdig med å legge til arter og slekter, kan du lære mer om markdown ved å prøve å legge til bilder, eller du kan du prøve deg på noen mer avansert git-teknikker her: https://learngitbranching.js.org/
@@ -297,4 +300,3 @@ Hvis du er ferdig med å legge til arter og slekter, kan du lære mer om markdow
 * Bli invitert og gjøre en request hos noen andre?
 * .gitignore
 * nano som standard redigeringsverktøy
-* kommandolinje-operasjoner

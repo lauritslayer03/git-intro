@@ -1,7 +1,7 @@
 # git-intro
 
-En kort introduksjon til git, et versjonskontrollsystem.
-I dette kurset skal vi lære om hvordan man kan bruke git og github til å samarbeide om å skrive kode og til å strukturere arbeidet sitt på en lur måte.
+En kort introduksjon til **git**, et versjonskontrollsystem.
+I dette kurset skal vi lære om hvordan man kan bruke **git** sammen med nettstedet **GitHub** til å samarbeide om å skrive kode og til å strukturere arbeidet sitt på en lur måte.
 
 ## Hva skal vi lage?
 
@@ -14,9 +14,9 @@ Vi skal fokusere på å lære om git, og ikke sette oss fast i kompileringsfeil.
 * Orden
 * Familie
 * Slekt
-* art
+* Art
 
-Så for eksempel den rødreven vi har her i Norge ser sånn her ut:
+Rødvreven vi har her i Norge, for eksempel, ser sånn ut:
 
 * Rike: Dyr
 * Rekke: 	Ryggstrengdyr
@@ -30,9 +30,35 @@ Din oppgave blir å lage en oversikt over en familie med dyr. Velg ditt favoritt
 
 *Før du går videre velg deg en familie med dyr (eller velg et art og finn ut hvilken familie den tilhører).*
 
-## Vi kommer i gang med Git
+## Ting vi trenger
 
-Vi laster ned git og lager en github-bruker
+### Terminal
+
+Vi skal gjøre alt arbeidet på maskinen med "terminalen", også kalt "kommandolinjen". Det er et type program som bruker tekst istendenfor grafikk. Mange nyttige programmer for utviklere har ingen grafisk del, og kan kun brukes fra kommandolinjen. På mac kommer dette innbygget: Åpne opp programmet som heter "Terminal" på macen.
+
+### git 
+
+Vi kaller **git** for et "system", men først og fremst er det et program som kjører på maskinen din. Så aller først må vi installere programmet!  
+Hvis du er på mac er det en innebygget måte å få til dette på. Skriv i terminalen din:  
+`git --version`
+  
+Hvis du har **git** vil programmet svare med hvilken versjon det er. Hvis ikke vil det komme instruksjoner for hvordan du installerer det. Følg disse instruksjonene.
+
+### GitHub-bruker
+
+Før vi kan bruke GitHub til å dele kode, trenger vi en bruker. GitHub brukeren din kan også bli en slags portefolio for å hvis fram hva du kan. Hvis du ikke har en bruker kan du lage en her: https://github.com/join 
+
+### SSH-nøkler
+
+todo
+
+#### Opprett en ny nøkkel
+
+todo
+
+#### Legg til nøkkelen i GitHub
+
+https://github.com/settings/keys
 
 ## Vi setter opp et lokalt repository
 

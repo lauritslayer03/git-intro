@@ -40,25 +40,59 @@ Vi skal gjøre alt arbeidet på maskinen med "terminalen", også kalt "kommandol
 
 Vi kaller **git** for et "system", men først og fremst er det et program som kjører på maskinen din. Så aller først må vi installere programmet!  
 Hvis du er på mac er det en innebygget måte å få til dette på. Skriv i terminalen din:  
-`git --version`
+
+```
+git --version
+```
   
 Hvis du har **git** vil programmet svare med hvilken versjon det er. Hvis ikke vil det komme instruksjoner for hvordan du installerer det. Følg disse instruksjonene.
 
 ### GitHub-bruker
 
-Før vi kan bruke GitHub til å dele kode, trenger vi en bruker. GitHub brukeren din kan også bli en slags portefolio for å hvis fram hva du kan. Hvis du ikke har en bruker kan du lage en her: https://github.com/join 
+Før vi kan bruke GitHub til å dele kode, trenger vi en bruker. GitHub brukeren din kan også bli en slags portefolio for å vise fram hva du kan. Hvis du ikke har en bruker kan du lage en her: https://github.com/join 
 
 ### SSH-nøkler
 
-todo
+Nå som vi har en bruker, må vi gi maskinen vår tilgang til å laste opp og ned fra den brukeren. Med GitHub er det ikke lov å bruke brukernavn og passord, så vi skal istedenfor bruke noe som heter en SSH-nøkkel (ssh key). Det er et slags veldig langt passord som ligger lagret på maskinen din. 
 
 #### Opprett en ny nøkkel
 
-todo
+Først må vi opprette en ny nøkkel. Dette gjør vi fra terminalen med følgende kommando, med din epost:
+```
+ssh-keygen -t ed25519 -C "dinepost@osloskolen.no"
+
+```
+
+`ssh-keygen` er et program for å lage sånne nøkler, og `ed25519` betyr typen nøkkel vi lager.
+
+Du vil først få tilbakemelding om at programmet henger med:
+```
+> Generating public/private ed25519 key pair.
+```
+
+Så får du spørsmål om hvor på maskinen din nøkkelen skal ligge, trykk enter for å godta standardvalget:
+````
+> Enter a file in which to save the key (/Users/you/.ssh/id_ed25519): [Press enter]
+````
+
+Tilslutt får vi spørsmål om nøkkelen skal ha et passord. Dette er viktig om noen andre har tilgang på datamaskinen din. Sålenge alle er forsiktige med å låse maskinen når du går fra den er det greit å trykke enter for ingen passord:
+```
+> Enter passphrase (empty for no passphrase): [Type a passphrase]
+> Enter same passphrase again: [Type passphrase again]
+```
 
 #### Legg til nøkkelen i GitHub
 
-https://github.com/settings/keys
+Vi har nå fått et "nøkkelpar" (key pair) med to deler: en "private" del i `/Users/navnetditt/.ssh/id_ed25519` og en "public" del i `/Users/navnetditt/.ssh/id_ed25519.pub`. Det er "public"-delen vi skal putte i GitHub. GitHub kan da bruke public-nøkkelen for å bekrefte at en nedlasting kommer fra en maskin som har den hemmelige "private" nøkkelen. (Fordi matematikk)  
+
+
+Vi kan kopiere **public** delen av nøkkelen med denne kommandoen:
+
+```
+cat /Users/navnetditt/.ssh/id_ed25519.pub | pbcopy
+```
+
+Og kopiere den inn i GitHub her: https://github.com/settings/keys
 
 ## Vi setter opp et lokalt repository
 

@@ -92,44 +92,79 @@ Vi kan kopiere **public** delen av nøkkelen med denne kommandoen:
 cat /Users/navnetditt/.ssh/id_ed25519.pub | pbcopy
 ```
 
-Og kopiere den inn i GitHub her: https://github.com/settings/keys
+Og limer den inn i GitHub her: https://github.com/settings/keys
 
-## Vi setter opp et lokalt repository
+TODO: add images?
 
-Vi setter opp et lokalt repoet vårt osv.
+## Git Started
 
-## Vi kommer i gang med github
+Vi skal nå opprette en mappe for prosjektet vårt, opprette den første filen, og laste dette opp til GitHub.
 
-setter opp ssh nøkler
+### Lokalt repository
 
-oppretter et tomt repo på github som tilsvarer vårt lokale repo.
+Et prosjekt som vi holder styr på med git kaller vi et "repository" eller bare "repo". Det betyr noe sånt som "oppbevaringssted". Vi skal opprette en tom mappe og gi git beskjed om å holde styr på filene der. Å opprette mapper og bevege oss rundt i dem er også noe vi kan gjøre med terminalen!
 
-## Make a change
+La oss opprette en tom mappe som heter "im-git-intro"
 
-Vi lager vår første commit (bunt) og pusher (laster opp) til main på github.
 
 ### Gjør en endring
 
-Bruke nano til å oppdatere README.md. 
+Det er en konvensjon å bruke en fil med navnet `README.md` til å forklare hva et repo er til for. GitHub vil gjenkjenne og automatisk vise en README.md-fil, så la oss begynne der. Vi bruker verktøyet `nano` til å redigere tekstfiler rett i terminalen. Kjør denne kommandoen for å opprette og redigere README.md:
+
+```
+nano README.md
+```
+
+Nå redigerer vi med nano! Bruk Ctrl-O for å lagre, og Ctrl-X for å gå ut av filen når du er ferdig.
+
+### Hva vet git?
+
+Når du har lagret filen skal git ha fått med seg endringen. Vi sjekker:
+```
+git status
+```
+
+Git skal da vise at den har fått med seg at filen er blitt endret på, men den er i klar for å lastes opp helt enda.
 
 ### "Stage" en endring
 
-Legger til endringen på "Staging Area"
+For at endringer skal bli lastet opp må den først puttes i "Staging Area", så vi kaller å gjøre en endring klar for å "stage" den. Vi stager en fil med kommandoen:
+
+```
+git add README.md
+```
 
 ### Commit
 
-En "bunt" med arbeid. Vi legger til arbeidet vi har gjort i en commit.
+Når alt som skal være med i opplastingen ligger i Staging, skal vi lage en "commit". En commit er en samling med endringer som gir mening sammen. En god hovedregel er at koden skal fungere på hver commit. Vi opprettet en commit med kommandoen:
+
+`git commit -m "Add README.md"`
+
+Hvor teksten mellom "" er en beskrivelse av endringene. Det er kjempenyttig når du jobber med andre, men kan også være lurt for å minne på seg selv hva det er man har gjort. Commiten med arbeid er nå klar til å lastes opp, men vi har ikke enda et sted å laste opp til.
+
+### Opprette et repository i GitHub
+
+TODO Opprett i github
+
+### Koble til GitHub
+
+TODO add remote
+Nå skal vi koble vår lokale mappe til github
 
 ### Push
 
-Vi laster opp arbeidet ved å gjøre en push.
+TODO push 
+
+### Vi sjekker at 
 
 ## Vi lager en branch
 
-Hva skjer hvis noen andre jobber samtidig? Hva hvis noe bare er delvis ferdig? Vi lager en forgrening
+Hva skjer hvis noen andre jobber samtidig? Hva hvis noe bare er delvis ferdig? Det er mye ryddigere å jobbe med en kopi av koden. Vi kaller en sånn kopi en "branch"
+
+### Lag en branch og bytt til den
 
 
-## Vi gjør en ny endring
+### Vi gjør en ny endring
 
 Nå som er trygt i vår egen branch kan vi gjøre 
 

@@ -222,7 +222,7 @@ git switch -c ny-branch
 
 ### Vi gjør en ny endring
 
-Nå som er trygt i vår egen branch kan vi begynne på artsdatabasen! Opprett en mappe med samme navn som familien du har valgt i roten av repoet med `mkdir`, gå inn i den med `cd`, og bruk `nano` for å skrive en `README.md`-fil inni den mappen med en kort beskrivelse av dyrefamilien (hent gjerne fra wikipedia).  
+Nå som er trygt i vår egen branch kan vi begynne på artsdatabasen! Opprett en mappe med samme navn som familien du har valgt i roten av repoet med `mkdir`, gå inn i den med `cd`, og bruk `nano` for å skrive en `README.md`-fil inni den mappen med en kort beskrivelse av dyrefamilien (hent gjerne fra wikipedia). Så lenge vi kaller filen `README` vil den automatisk vises i GitHub, så vi kan gå gjennom mappene som en nettside og lese om de forskjellige artene.
 
 Når den nye filen er lagret legg den til i stage med `git add`, og legg den til i en **commit** med `git commit -m`. Husk å ta med en beskrivelse! Til slutt, last opp endringen til github med `git push -u origin mappestruktur`. Vi må fortsatt spesifisere at vi pusher til `origin` og til `mappestruktur`.
 
@@ -230,23 +230,54 @@ Når den nye filen er lagret legg den til i stage med `git add`, og legg den til
 
 Når endringene er ferdig, er det på tide å få dem inn i main. Hensikten er at main skal være versjonen med den endelige koden. For overføre koden bruker vi det som i GitHub kalles en **Pull Request**. En pull request er altså en *forespørsel* om at de som eier repoet (i dette tilfellet deg selv) skal *trekke* dine endringer inn i repoet.  
 
-Gå inn i repoet i GitHub. 
+Gå inn i repoet i GitHub. Siden vi pushet til branchen nylig, skal det komme en stor fin grønn knapp øverst i repoet "Compare & Pull request".  
+
+Først skal vi opprette requesten, gjerne med en beskrivelse av hvorfor vi gjør denne endringen. Det kan vi la stå tomt for nå. Vi trykker på "Create".  
+
+Så kommer vi til en oversikt. Hvis dere trykker på "Files Changed" fanen, kan dere se en oversikt over endringene som er med i denne requesten. Se over at det ikke er noen skrivefeil.
 
 ## Merge en Pull Request
 
-Når requesten er OK, kan vi merge den. Det vil si at vi spleiser endringene fra en forgreining inn i en annen. I dette tilfellet merger branchen hvor vi har gjort endringer inn i main.
+Når requesten er OK, kan vi `merge` den. Det vil si at vi "spleiser" endringene fra en branch inn i en annen. I dette tilfellet merger `mappestruktur` inn i `main`. GitHub kan gjøre dette automatisk for oss, med enda en fin, grønn knapp. Trykk på den.
 
 ## Hent endringer fra Github ned til din datamaskin
 
-Vi gjøre en pull fra remote til din lokale maskin.
+Ettersom GitHub tok seg av å `merge` fra `mappestruktur` til `main`, er ikke de endringen i `main` på din maskin. Vi skal gjøre et motsatt en av `push`, nemlig en `pull`. Først må vi tilbake til `main`:
 
-Git pull.
+```git switch main```
 
-Git Log.
+For så å laste ned endringene fra GitHub med `pull`:
+```git pull```
+
+Hvis dette gikk som det skulle, skal nå både commiten og den nye mappen være lastet ned. Vi kan sjekke at commiten er kommet med å sjekke listen over commits med `log`:
+
+```git log```  
+
+Vi kan sjekke at mappen og filen er kommet ved å bruke kommandoen `ls` (kort for "list"), som viser alt i nåværende mappe: 
+```ls```
 
 ## Legg til mer i artsdatabasen!
 
-Fortsett med å legge til flere slekter og arter. Ikke gjør alt på en gang! Stykk opp arbeidet ditt. Da er det enklere for deg å holde oversikt, og det er enklere for noen som leser historikken senere å forstå hva som har skjedd i vært steg.
+Inne i famile-mappen skal du opprette en mappe for hver av slektene i familien. Inne i hver av slekt-mappene, oppretter du en mappe om hver av artene. Da får vi mapper som ser sånn ut:
+
+* /Hundefamilien
+    * README.md
+    * /Vulpes
+        * README.md
+        * /vulpes
+            * README.md
+        * /chama
+            * README.md
+    * /Canis
+        * README.md
+        * /latrans
+            * README.md
+    * /Lycaloplex
+        * README.md
+
+## git gud
+
+Nå kan du alt du trenger for å gjøre endringer med **git**! Det virker kanskje litt mer tungvint enn å skrive i Word, men når man er flere som skriver kode, er det essentielt for å ikke få store problemer. Fortsett med å legge til flere slekter og arter. Ikke gjør alt på en gang! Stykk opp arbeidet ditt. Da er det enklere for deg å holde oversikt, og det er enklere for noen som leser historikken senere å forstå hva som har skjedd i vært steg.
 
 Husk prosessen: 
 * Lag og switch til en ny branch fra main
@@ -257,10 +288,13 @@ Husk prosessen:
 * merge PRen i github
 * pull ny main.
 
+## Overflow
+
+Hvis du er ferdig med å legge til arter og slekter, kan du lære mer om markdown ved å prøve å legge til bilder, eller du kan du prøve deg på noen mer avansert git-teknikker her: https://learngitbranching.js.org/
+
 ## TODO
 
 * Bli invitert og gjøre en request hos noen andre?
 * .gitignore
 * nano som standard redigeringsverktøy
 * kommandolinje-operasjoner
-

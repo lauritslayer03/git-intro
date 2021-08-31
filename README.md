@@ -104,18 +104,36 @@ Vi skal nå opprette en mappe for prosjektet vårt, opprette den første filen, 
 
 Et prosjekt som vi holder styr på med git kaller vi et "repository" eller bare "repo". Det betyr noe sånt som "oppbevaringssted". Vi skal opprette en tom mappe og gi git beskjed om å holde styr på filene der. Å opprette mapper og bevege oss rundt i dem er også noe vi kan gjøre med terminalen!
 
-La oss opprette en tom mappe som heter "im-git-intro"
+La oss opprette en tom mappe som heter "im-git-intro", og så gå inn i den:
 
+```
+mkdir im-git-intro
+cd im-git-intro
+```
+
+`mkdir`står for "Make Directory", altså opprett mappe, og `cd` står for "Change Directory", altså endre mappe.
+Så skal vi initialisere denne mappen som et git-prosjekt med en git-kommando:
+
+```
+git init -b main
+```
+
+Med denne kommandoen opprettes et tomt git-repo med en **branch** til å begynne med som heter `main`. Det brukes litt forskjellige navn på den første branchen som `main`, `master` eller `trunk`. GitHub bruker `main`, og derfor bruker vi det.
 
 ### Gjør en endring
 
-Det er en konvensjon å bruke en fil med navnet `README.md` til å forklare hva et repo er til for. GitHub vil gjenkjenne og automatisk vise en README.md-fil, så la oss begynne der. Vi bruker verktøyet `nano` til å redigere tekstfiler rett i terminalen. Kjør denne kommandoen for å opprette og redigere README.md:
+Det er en konvensjon å bruke en fil med navnet `README.md` til å forklare hva et repo er til for. GitHub vil gjenkjenne og automatisk vise en README filen, så la oss begynne der. Vi bruker verktøyet `nano` til å redigere tekstfiler rett i terminalen. Kjør denne kommandoen for å opprette og redigere README.md:
 
 ```
 nano README.md
 ```
 
-Nå redigerer vi med nano! Bruk Ctrl-O for å lagre, og Ctrl-X for å gå ut av filen når du er ferdig.
+Nå redigerer vi med nano! README er en **markdown** fil, som er et enkelt format for å skrive tekster. Vi kan skrive en overskrift sånn her:
+```markdown
+# Artene i Hundedyr-familien
+```
+
+Bruk Ctrl-O for å lagre, og Ctrl-X for å gå ut av filen når du er ferdig.
 
 ### Hva vet git?
 
@@ -144,35 +162,75 @@ Hvor teksten mellom "" er en beskrivelse av endringene. Det er kjempenyttig når
 
 ### Opprette et repository i GitHub
 
-TODO Opprett i github
+Du oppretter et nytt repository i GitHub med den grønne "New"-knappen i hjemskjermen når du er logget inn.
+
+Bruk samme navn på repoet som mappen vi opprettet. Du velger selv om du vil opprettet repoet offentlig eller privat, du kan alltids gjøre det offentlig senere, om du oppretter det privat. Ikke trykk på noen av check-boksene. 
 
 ### Koble til GitHub
 
-TODO add remote
-Nå skal vi koble vår lokale mappe til github
+Nå skal vi koble vår lokale mappe til github. GitHub-repoet vi akkurat opprettet skal vi legge til som en **remote**, altså et "fjernlager".
+
+```
+git remote add origin https://github.com/(dinbruker)/(ditt-repository).git
+
+```
+
+`origin` er nå kallenavnet for repoet i GitHub. `origin` er en konvensjon for når man kun har en **remote** man jobber med.
 
 ### Push
 
-TODO push 
+Vi er nå klare til å laste opp. Git gjør ikke så mange antakelser, så vi eksplisitt at ikke bare skal laste opp med `push`, men at vi skal pushe til stedet som heter `origin`, og at vi skal `push`e til branchen som heter `main`.
 
-### Vi sjekker at 
+```
+git push -u origin main
+```
+
+### Gikk alt bra?
+
+Gå inn i repositoryet ditt på GitHub, nå skal vi ha en README-fil som vises i nettleseren!
 
 ## Vi lager en branch
 
-Hva skjer hvis noen andre jobber samtidig? Hva hvis noe bare er delvis ferdig? Det er mye ryddigere å jobbe med en kopi av koden. Vi kaller en sånn kopi en "branch"
+Nå har vi jobbet og `push`et rett til `main`, som er vår hoved-branch. Hvis man er flere som jobber samtidig kan dette fort bli rotete. Derfor er det lurt å jobbe med hver sin kopi eller forgreining av koden, eller `branch`. Så når vi nå skal begynne å legge inn arter og slekter i repositoryet vårt, skal vi lage `branch` først.
 
 ### Lag en branch og bytt til den
 
+Vi bruker `branch` kommandoen for å opprette og liste opp brancher:
+
+```
+git branch
+```
+Viser at vi har kun en branch: `main`.
+For å lager en ny branch med navnet "mappestruktur", kjører vi kommandoen:
+
+```
+git branch mappestruktur
+```
+Nå kan vi se at den er opprettet;
+```
+git branch
+```
+Men stjernen ved siden av navnet `main` viser at det fortsatt er den som er valgt. For å bytte til å jobbe i den nye branchen kan vi bruke `switch`:
+
+```
+git switch mappestruktur
+```
+For å både opprette og bytte på én gang kan vi bruke `switch -c` (kort for `--create`):
+```
+git switch -c ny-branch
+```
 
 ### Vi gjør en ny endring
 
-Nå som er trygt i vår egen branch kan vi gjøre 
+Nå som er trygt i vår egen branch kan vi begynne på artsdatabasen! Opprett en mappe med samme navn som familien du har valgt i roten av repoet med `mkdir`, gå inn i den med `cd`, og bruk `nano` for å skrive en `README.md`-fil inni den mappen med en kort beskrivelse av dyrefamilien (hent gjerne fra wikipedia).  
+
+Når den nye filen er lagret legg den til i stage med `git add`, og legg den til i en **commit** med `git commit -m`. Husk å ta med en beskrivelse! Til slutt, last opp endringen til github med `git push -u origin mappestruktur`. Vi må fortsatt spesifisere at vi pusher til `origin` og til `mappestruktur`.
 
 ## Vi lager en pull request, og gjør en egen-review
 
-Vi får endringene våre over fra forgreining til
+Når endringene er ferdig, er det på tide å få dem inn i main. Hensikten er at main skal være versjonen med den endelige koden. For overføre koden bruker vi det som i GitHub kalles en **Pull Request**. En pull request er altså en *forespørsel* om at de som eier repoet (i dette tilfellet deg selv) skal *trekke* dine endringer inn i repoet.  
 
-En pull request er altså en *forespørsel* om at de som eier repoet (i dette tilfellet dere selv) skal *trekke* dine endringer inn i repoet. 
+Gå inn i repoet i GitHub. 
 
 ## Merge en Pull Request
 

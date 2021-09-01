@@ -178,7 +178,7 @@ Bruk samme navn på repoet som mappen vi opprettet. Du velger selv om du vil opp
 Nå skal vi koble vår lokale mappe til github. GitHub-repoet vi akkurat opprettet skal vi legge til som en **remote**, altså et "fjernlager".
 
 ```
-git remote add origin https://github.com/(dinbruker)/(ditt-repository).git
+git remote add origin git@github.com:(GitHub-brukernavn)/2im-git-intro.git
 
 ```
 

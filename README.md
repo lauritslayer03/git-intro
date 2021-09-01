@@ -117,6 +117,13 @@ Så skal vi initialisere denne mappen som et git-prosjekt med en git-kommando:
 ```
 git init -b main
 ```
+Hvis du er på en gammel versjon av git kan det hende `-b` ikke fungerer. Da bruker du:
+
+```
+git init -M main
+
+```
+
 
 Med denne kommandoen opprettes et tomt git-repo med en **branch** til å begynne med som heter `main`. Det brukes litt forskjellige navn på den første branchen som `main`, `master` eller `trunk`. GitHub bruker `main`, og derfor bruker vi det.
 
